@@ -1,0 +1,6 @@
+{
+  "Name": "MovieAvailabilityNotifier",
+  "ProjectType": "Process",
+  "Description": "UiPath RPA robot that checks movie availability at cinema and TV\r\nand notifies the user by email.",
+  "MainFile": "Main.xaml"
+}
