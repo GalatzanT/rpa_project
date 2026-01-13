@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="searchIMBD" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="searchIMBD" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="movieName" Type="InArgument(x:String)" />
     <x:Property Name="releaseDateRo" Type="OutArgument(x:String)" />
@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>620,1544.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>620,2264</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>searchIMBD_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -44,6 +44,8 @@
       <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -105,43 +107,48 @@
       <AssemblyReference>System.Private.Uri</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="searchIMBD" sap:VirtualizedContainerService.HintSize="574.4,1480" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="searchIMBD" sap:VirtualizedContainerService.HintSize="592,2199.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="movieName" />
+      <Variable x:TypeArguments="x:String" Name="releaseDateWorld" />
+      <Variable x:TypeArguments="x:String" Name="result" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="512,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="529.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[movieName]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">Rapunsel</InArgument>
+        <InArgument x:TypeArguments="x:String">Hobbit</InArgument>
       </Assign.Value>
     </Assign>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: IMDb: Ratings, Reviews, and Where to Watch the Best Movies &amp; TV Shows" sap:VirtualizedContainerService.HintSize="512,1246.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="6f28bf11-7124-4647-b7a0-36062aa28dee" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: IMDb: Ratings, Reviews, and Where to Watch the Best Movies &amp; TV Shows" sap:VirtualizedContainerService.HintSize="529.6,1965.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="6f28bf11-7124-4647-b7a0-36062aa28dee" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="478.4,1029.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,1748.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT suggestion-search'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="6f28bf11-7124-4647-b7a0-36062aa28dee" Text="[movieName]" Version="V3">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT suggestion-search'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="433.6,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="6f28bf11-7124-4647-b7a0-36062aa28dee" Text="[movieName]" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.imdb.com/" DesignTimeRectangle="468, 132, 758, 39" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT suggestion-search'" FullSelectorArgument="&lt;webctrl id='suggestion-search' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='suggestion-search' tag='INPUT' type='text' class='imdb-header-search__input searchTypeahead__input react-autosuggest__input' aaname='' /&gt;" Guid="7c71cbbb-1111-4323-bb64-e9f239ffc010" InformativeScreenshot="8707dcf9d72eb3e0bbd5bcd6c365cb4a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IMDb: Ratings, Reviews, and Where to Watch the Best Movies &amp;amp; TV Shows' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
               </uix:NTypeInto.Target>
             </uix:NTypeInto>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'SVG'" sap:VirtualizedContainerService.HintSize="416,194.5" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6f28bf11-7124-4647-b7a0-36062aa28dee" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'SVG'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6f28bf11-7124-4647-b7a0-36062aa28dee" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.imdb.com/" DesignTimeRectangle="1255, 138, 30, 30" DesignTimeScaleFactor="1.25" ElementType="Icon" FriendlyName="'SVG'" FullSelectorArgument="&lt;webctrl aria-role='presentation' parentid='suggestion-search-button' tag='svg' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='presentation' parentid='suggestion-search-button' tag='svg' type='' class='ipc-icon ipc-icon--magnify' aaname='' /&gt;" Guid="df90f418-3f49-4936-80d6-23ce3dc02c9f" InformativeScreenshot="cbc290cffcc312dbb74e049af56c8613.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IMDb: Ratings, Reviews, and Where to Watch the Best Movies &amp;amp; TV Shows' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
               </uix:NClick.Target>
             </uix:NClick>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="5" DisplayName="Click 'Titanic'" sap:VirtualizedContainerService.HintSize="416,194.5" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6f28bf11-7124-4647-b7a0-36062aa28dee" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="5" DisplayName="Click 'Titanic'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6f28bf11-7124-4647-b7a0-36062aa28dee" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.imdb.com/find/?q=titanic&amp;ref_=hm_nv_srb_sm" DesignTimeRectangle="320, 493, 62, 24" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Titanic'" FullSelectorArgument="&lt;webctrl aaname='Titanic' tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H3' type='' class='ipc-title__text' /&gt;" Guid="170fd806-22fd-4b5e-aab9-f1923cb2a8e4" ImageBase64="" InformativeScreenshot="67d90337d2bdf96612d4874f7c352eef.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Find - IMDb' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -152,11 +159,63 @@
                 </uix:TargetAnchorable>
               </uix:NClick.Target>
             </uix:NClick>
-            <uix:NGetText DisplayName="Get Text '1997'" sap:VirtualizedContainerService.HintSize="416,187.5" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="6f28bf11-7124-4647-b7a0-36062aa28dee" TextString="[releaseDateRo]" Version="V3">
+            <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll" sap:VirtualizedContainerService.HintSize="433.6,214.4" sap2010:WorkflowViewState.IdRef="NMouseScroll_1" InteractionMode="HardwareEvents" MovementUnits="10" Version="V3">
+              <uix:NMouseScroll.SearchedElement>
+                <uix:SearchedElement>
+                  <uix:SearchedElement.Target>
+                    <uix:TargetAnchorable BrowserURL="https://www.imdb.com/title/tt4902964/?ref_=fn_t_1" DesignTimeRectangle="190, 486, 1010, 62" DesignTimeScaleFactor="1.25" FriendlyName="'A /title/tt4902964/rele…'" FullSelectorArgument="&lt;webctrl aria-label='See more' class='ipc-metadata-list-item__icon-link' href='/title/tt4902964/releaseinfo/?ref_=tt_dt_rdat' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='See more' class='ipc-metadata-list-item__icon-link' href='/title/tt4902964/releaseinfo/?ref_=tt_dt_rdat' tag='A' type='' aaname='' /&gt;" Guid="92096f2a-4994-4683-b0ad-5d60e409bab1" InformativeScreenshot="37243c232398508b97addfd3de4e51c0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rapunzel&amp;apos;s Tangled Adventure (TV Series 2017–2020) - IMDb' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target DesignTimeRectangle="190, 420, 1010, 40" FriendlyName="'DetailsEdit'" FullSelectorArgument="&lt;webctrl class='ipc-title__wrapper' idx='7' parentid='__next' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ipc-title__wrapper' type='' parentid='__next' tag='DIV' aaname='' check:innerText='Details&amp;#xD;&amp;#xA;Edit' /&gt;" ImageBase64="" SearchSteps="FuzzySelector" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:SearchedElement.Target>
+                  <uix:SearchedElement.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:SearchedElement.Timeout>
+                </uix:SearchedElement>
+              </uix:NMouseScroll.SearchedElement>
+            </uix:NMouseScroll>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="3" DisplayName="Click 'Release date'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6f28bf11-7124-4647-b7a0-36062aa28dee" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.imdb.com/title/tt4574334/?ref_=nv_srb_trend_title_3" DesignTimeRectangle="190, 542, 133, 30" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Release date'" FullSelectorArgument="&lt;webctrl aaname='Release date' aria-label='See more' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Release date' aria-label='See more' tag='A' type='' class='ipc-metadata-list-item__label ipc-metadata-list-item__label--link' check:innerText='Release date' /&gt;" Guid="4e18d995-ab3e-42de-b7b6-2b5bdc84afa7" InformativeScreenshot="108507a6c9b0b5368501db3476e3af69.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Stranger Things (TV Series 2016–2025) - IMDb' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="190, 460, 1010, 40" FriendlyName="'DetailsEdit'" FullSelectorArgument="&lt;webctrl class='ipc-title__wrapper' css-selector='body&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div' idx='6' parentid='__next' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ipc-title__wrapper' type='' aaname='' parentid='__next' tag='DIV' check:innerText='Details&amp;#xD;&amp;#xA;Edit' /&gt;" ImageBase64="" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,82.4" sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[result]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">["IMBD Info United states first Release: " + result]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <uix:NGetText DisplayName="Get Text 'United States'" sap:VirtualizedContainerService.HintSize="433.6,157.6" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="6f28bf11-7124-4647-b7a0-36062aa28dee" TextString="[releaseDateWorld]" Version="V3">
               <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="https://www.imdb.com/title/tt0120338/?ref_=nv_sr_srsg_0_tt_7_nm_1_in_0_q_titanic" DesignTimeRectangle="190, 313, 41, 25" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'1997'" FullSelectorArgument="&lt;webctrl aaname='1997' parentid='__next' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='__next' tag='A' type='' class='ipc-link ipc-link--baseAlt ipc-link--inherit-color' /&gt;" Guid="d5f713b6-3dba-4358-baf5-b54c75756dda" InformativeScreenshot="92303081fe76dcca6bd6335dac8c8fe7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Titanic (1997) - IMDb' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                <uix:TargetAnchorable BrowserURL="https://www.imdb.com/title/tt4902964/releaseinfo/?ref_=tt_dt_rdat" DesignTimeRectangle="349, 655, 146, 24" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'March 24, 2017'" FullSelectorArgument="&lt;webctrl parentid='rel_1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='rel_1' tag='SPAN' type='' class='ipc-metadata-list-item__list-content-item ipc-btn--not-interactable' /&gt;" Guid="47e5fb04-94a6-4c24-9da8-64a15a3cffd4" InformativeScreenshot="057954af39d422bf3f63178c25db00e8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rapunzel&amp;apos;s Tangled Adventure (TV Series 2017–2020) - Release info - IMDb' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="210, 652, 139, 30" ElementType="Text" FriendlyName="'United States'" FullSelectorArgument="&lt;webctrl aria-label='United States' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='United States' tag='A' type='' class='ipc-metadata-list-item__label ipc-metadata-list-item__label--link' aaname='United States' check:innerText='United States' /&gt;" ImageBase64="" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
               </uix:NGetText.Target>
             </uix:NGetText>
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,82.4" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[result]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[result + releaseDateWorld]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="433.6,85.6" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[result]" />
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
