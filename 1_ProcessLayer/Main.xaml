@@ -152,8 +152,12 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="643,6828" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1045,8291" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_NewRow" />
+      <Variable x:TypeArguments="x:String" Name="addEmailChoice" />
+      <Variable x:TypeArguments="x:String" Name="newClientEmail" />
+      <Variable x:TypeArguments="x:String" Name="newClientName" />
       <Variable x:TypeArguments="uwahm:HttpResponseSummary" Name="detailsResponse" />
       <Variable x:TypeArguments="njl:JObject" Name="jsonObj" />
       <Variable x:TypeArguments="x:String" Name="detailsUrl" />
@@ -170,26 +174,67 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="628,277" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Introdu numele filmului:" Title="Movie Availability Checker">
-      <ui:InputDialog.Result>
-        <OutArgument x:TypeArguments="x:String">[GlobalVariablesNamespace.GlobalVariables.movieName]</OutArgument>
-      </ui:InputDialog.Result>
-    </ui:InputDialog>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="628,6528" sap2010:WorkflowViewState.IdRef="TryCatch_1">
-      <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="626,5480.5" sap2010:WorkflowViewState.IdRef="Sequence_11">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Get Movie Data from API" sap:VirtualizedContainerService.HintSize="592,4847" sap2010:WorkflowViewState.IdRef="Sequence_14">
+    <Sequence sap:VirtualizedContainerService.HintSize="628,1492" sap2010:WorkflowViewState.IdRef="Sequence_33">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:MessageBox AutoCloseAfter="00:00:00" Buttons="YesNo" Caption="Movie Notifier" ChosenButton="[addEmailChoice]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="452,118" sap2010:WorkflowViewState.IdRef="MessageBox_8" Text="[&quot;Dorești să adaugi un email nou pentru notificări?&quot;]" />
+      <If Condition="[addEmailChoice.ToString = &quot;Yes&quot;]" sap:VirtualizedContainerService.HintSize="452,1282" sap2010:WorkflowViewState.IdRef="If_5">
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,1062" sap2010:WorkflowViewState.IdRef="Sequence_34">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="558,180" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="416,275" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Introdu numele:" Title="Adăugare Client">
+              <ui:InputDialog.Result>
+                <OutArgument x:TypeArguments="x:String">[newClientName]</OutArgument>
+              </ui:InputDialog.Result>
+            </ui:InputDialog>
+            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="416,275" sap2010:WorkflowViewState.IdRef="InputDialog_3" IsPassword="False" Label="Introdu emailul:" Title="Adăugare Client">
+              <ui:InputDialog.Result>
+                <OutArgument x:TypeArguments="x:String">[newClientEmail]</OutArgument>
+              </ui:InputDialog.Result>
+            </ui:InputDialog>
+            <ui:BuildDataTable DataTable="[dt_NewRow]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="416,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Nume&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{newClientName, newClientEmail}]" DataTable="[dt_NewRow]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="416,221" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+            <ui:AppendRange DataTable="[dt_NewRow]" DisplayName="Append Range Workbook" sap:VirtualizedContainerService.HintSize="416,139" sap2010:WorkflowViewState.IdRef="AppendRange_2" SheetName="Foaie1" WorkbookPath="3_DataLayer\rpa_project.xlsx" />
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Sequence_35">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="628,275" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Introdu numele filmului:" Title="Movie Availability Checker">
+      <ui:InputDialog.Result>
+        <OutArgument x:TypeArguments="x:String">[GlobalVariablesNamespace.GlobalVariables.movieName]</OutArgument>
+      </ui:InputDialog.Result>
+    </ui:InputDialog>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="628,6501" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="626,5458" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="Get Movie Data from API" sap:VirtualizedContainerService.HintSize="592,4829" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="558,175" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[searchUrl]</OutArgument>
               </Assign.To>
@@ -197,7 +242,7 @@
                 <InArgument x:TypeArguments="x:String">["https://api.themoviedb.org/3/search/movie?api_key=" &amp; GlobalVariablesNamespace.GlobalVariables.apiKey &amp; "&amp;query=" &amp; GlobalVariablesNamespace.GlobalVariables.movieName]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="558,180" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign sap:VirtualizedContainerService.HintSize="558,175" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[GlobalVariablesNamespace.GlobalVariables.movieName]</OutArgument>
               </Assign.To>
