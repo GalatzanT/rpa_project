@@ -44,6 +44,7 @@
       <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
       <x:String>UiPath.UIAutomationNext.Contracts</x:String>
       <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Linq.Expressions</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
@@ -105,24 +106,23 @@
       <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="searchIMBD" sap:VirtualizedContainerService.HintSize="680,2125" sap2010:WorkflowViewState.IdRef="Sequence_4">
-    <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="result" />
-    </Sequence.Variables>
+  <Sequence DisplayName="searchIMBD" sap:VirtualizedContainerService.HintSize="643,1761" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: IMDb: Ratings, Reviews, and Where to Watch the Best Movies &amp; TV Shows" sap:VirtualizedContainerService.HintSize="531,2102" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="6f28bf11-7124-4647-b7a0-36062aa28dee" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: IMDb: Ratings, Reviews, and Where to Watch the Best Movies &amp; TV Shows" sap:VirtualizedContainerService.HintSize="531,1738" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="6f28bf11-7124-4647-b7a0-36062aa28dee" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="497,1856.5" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="497,1492.5" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -167,7 +167,7 @@
                 </uix:SearchedElement>
               </uix:NMouseScroll.SearchedElement>
             </uix:NMouseScroll>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="3" DisplayName="Click 'Release date'" sap:VirtualizedContainerService.HintSize="416,194.5" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6f28bf11-7124-4647-b7a0-36062aa28dee" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="3" DisplayName="Click 'Release date'" sap:VirtualizedContainerService.HintSize="416,190.5" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6f28bf11-7124-4647-b7a0-36062aa28dee" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.imdb.com/title/tt4574334/?ref_=nv_srb_trend_title_3" DesignTimeRectangle="190, 542, 133, 30" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'Release date'" FullSelectorArgument="&lt;webctrl aaname='Release date' aria-label='See more' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Release date' aria-label='See more' tag='A' type='' class='ipc-metadata-list-item__label ipc-metadata-list-item__label--link' check:innerText='Release date' /&gt;" Guid="4e18d995-ab3e-42de-b7b6-2b5bdc84afa7" InformativeScreenshot="108507a6c9b0b5368501db3476e3af69.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Stranger Things (TV Series 2016–2025) - IMDb' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -178,15 +178,7 @@
                 </uix:TargetAnchorable>
               </uix:NClick.Target>
             </uix:NClick>
-            <Assign sap:VirtualizedContainerService.HintSize="416,180" sap2010:WorkflowViewState.IdRef="Assign_3">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[result]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">["IMBD Info United states first Release: " + result]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <uix:NGetText DisplayName="Get Text 'United States'" sap:VirtualizedContainerService.HintSize="416,194.5" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="6f28bf11-7124-4647-b7a0-36062aa28dee" TextString="[GlobalVariablesNamespace.GlobalVariables.releaseDateWorld]" Version="V3">
+            <uix:NGetText DisplayName="Get Text 'United States'" sap:VirtualizedContainerService.HintSize="416,194.5" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="6f28bf11-7124-4647-b7a0-36062aa28dee" TextString="[GlobalVariablesNamespace.GlobalVariables.releaseDate]" Version="V3">
               <uix:NGetText.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.imdb.com/title/tt4902964/releaseinfo/?ref_=tt_dt_rdat" DesignTimeRectangle="349, 655, 146, 24" DesignTimeScaleFactor="1.25" ElementType="Text" FriendlyName="'March 24, 2017'" FullSelectorArgument="&lt;webctrl parentid='rel_1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='rel_1' tag='SPAN' type='' class='ipc-metadata-list-item__list-content-item ipc-btn--not-interactable' /&gt;" Guid="47e5fb04-94a6-4c24-9da8-64a15a3cffd4" InformativeScreenshot="057954af39d422bf3f63178c25db00e8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Rapunzel&amp;apos;s Tangled Adventure (TV Series 2017–2020) - Release info - IMDb' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -197,15 +189,7 @@
                 </uix:TargetAnchorable>
               </uix:NGetText.Target>
             </uix:NGetText>
-            <Assign sap:VirtualizedContainerService.HintSize="416,180" sap2010:WorkflowViewState.IdRef="Assign_4">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[result]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[result + GlobalVariablesNamespace.GlobalVariables.releaseDateWorld]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="416,115.5" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[result]" />
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="416,115.5" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[GlobalVariablesNamespace.GlobalVariables.releaseDate]" />
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
