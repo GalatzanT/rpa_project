@@ -454,9 +454,7 @@
               </sap:WorkflowViewStateService.ViewState>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="searchIMBD.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="592,150.5" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="2_UILayer\searchIMBD.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="movieName">
-                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="GlobalVariablesNamespace.GlobalVariables.movieName" />
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="movieName">[GlobalVariablesNamespace.GlobalVariables.movieName]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_ReadClientData.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="592,150.5" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="3_DataLayer\Excel_ReadClientData.xaml">
