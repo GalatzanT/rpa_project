@@ -215,7 +215,7 @@
                       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,182" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;UI element not found while searching for movie: &quot; + movieName + &quot;. Error: &quot; + exception.Message]" />
                       <Assign sap:VirtualizedContainerService.HintSize="416,171" sap2010:WorkflowViewState.IdRef="Assign_5">
                         <Assign.To>
-                          <OutArgument x:TypeArguments="x:String">[releaseDate]</OutArgument>
+                          <OutArgument x:TypeArguments="x:String">[GlobalVariablesNamespace.GlobalVariables.releaseDate]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
                           <InArgument x:TypeArguments="x:String">["N/A (UI search failed)"]</InArgument>
@@ -238,7 +238,7 @@
                       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,182" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;An unexpected error occurred during UI search for movie: &quot; + movieName + &quot;. Error: &quot; + exception.Message]" />
                       <Assign sap:VirtualizedContainerService.HintSize="416,171" sap2010:WorkflowViewState.IdRef="Assign_6">
                         <Assign.To>
-                          <OutArgument x:TypeArguments="x:String">[releaseDate]</OutArgument>
+                          <OutArgument x:TypeArguments="x:String">[GlobalVariablesNamespace.GlobalVariables.releaseDate]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
                           <InArgument x:TypeArguments="x:String">["N/A (UI search failed)"]</InArgument>
